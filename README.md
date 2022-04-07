@@ -9,11 +9,12 @@ http = urllib3.PoolManager()
 
 def lambda_handler(event, context):
     
-    url = "<slack-webhook-url>"
+    
+    url = event['slack_webhook'] # "<slack-webhook-url>"
     
     msg = {
-        "channel": "<slack-channel>",
-        "username": "AWS-LAMBDA",
+        "channel": event['channel'], # "<slack-channel>"
+        "username": event['username'] # "AWS-LAMBDA",
         "text": event['message']
     }
     
